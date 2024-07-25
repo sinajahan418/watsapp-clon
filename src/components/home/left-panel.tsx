@@ -1,3 +1,4 @@
+"use client";
 import {
   ListFilter,
   LogOut,
@@ -9,6 +10,9 @@ import { Input } from "../ui/input";
 import ThemeSwitch from "./theme-switch";
 import { conversations } from "@/dummy-data/db";
 import Conversation from "./conversation";
+import { ClerkProvider, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignInButton, SignOutButton } from "@clerk/clerk-react";
+import UserListDialog from "./user-list-dialog";
 
 const LeftPanel = () => {
   return (
@@ -16,10 +20,17 @@ const LeftPanel = () => {
       <div className="sticky top-0 bg-left-panel z-10">
         {/* Header */}
         <div className="flex justify-between bg-gray-primary p-3 items-center">
-          <User size={24} />
+          <UserButton />
+          {/* <SignedIn>
+            <SignOutButton />
+          </SignedIn>
+
+          <SignedOut>
+            <SignInButton />
+          </SignedOut> */}
 
           <div className="flex items-center gap-3">
-            <MessageSquareDiff size={20} />{" "}
+            <UserListDialog />
             {/* TODO: This line will be replaced with <UserListDialog /> */}
             <ThemeSwitch />
             <LogOut size={20} className="cursor-pointer" />
