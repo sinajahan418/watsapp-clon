@@ -104,6 +104,9 @@
     @apply bg-background text-foreground;
   }
 }
+input:focus{
+  outline: none;
+}
 
 /* WE ADDED => DARK MODE THIN SCROLLBAR */
 @layer components {
